@@ -1,0 +1,26 @@
+#!/usr/bin/python
+
+import re
+from gradelib import *
+
+r = Runner(save("xv6.out"))
+
+@test(0, "Testing reverse readlink (private)")
+def test_revreadlink_private():
+    r.run_qemu(shell_script([
+        'mp4_3_private'
+    ]), timeout=20)
+
+@test(8, "Reverse readlink: private testcase 1 (8 points)", parent=test_revreadlink_private)
+def test_revreadlink_private1():
+    pattern = (
+    )
+    r.match(pattern)
+
+@test(8, "Reverse readlink: private testcase 2 (8 points)", parent=test_revreadlink_private)
+def test_revreadlink_private2():
+    pattern = (
+    )
+    r.match(pattern)
+
+run_tests()

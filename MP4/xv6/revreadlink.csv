@@ -1,0 +1,8 @@
+make[1]: Entering directory '/home/xv6'
+make[1]: 'kernel/kernel' is up to date.
+make[1]: Leaving directory '/home/xv6'
+Testing reverse readlink (public): (1.0s) 
+  Reverse readlink: public testcase 1 (8 points): OK 
+  Reverse readlink: public testcase 2 (8 points): OK 
+  Reverse readlink: public testcase 3 (8 points): OK 
+Score: 24/24

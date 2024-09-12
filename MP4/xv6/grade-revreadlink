@@ -1,0 +1,47 @@
+#!/usr/bin/python
+
+import re
+from gradelib import *
+
+r = Runner(save("xv6.out"))
+
+@test(0, "Testing reverse readlink (public)")
+def test_revreadlink():
+    r.run_qemu(shell_script([
+        'mp4_3'
+    ]), timeout=20)
+
+@test(8, "Reverse readlink: public testcase 1 (8 points)", parent=test_revreadlink)
+def test_revreadlink_public1():
+    pattern = r'^\/test2$'
+    r.match(pattern)
+
+@test(8, "Reverse readlink: public testcase 2 (8 points)", parent=test_revreadlink)
+def test_revreadlink_public2():
+    pattern = (
+        r'^('
+        r'\/testb \/testc \/testd|'
+        r'\/testb \/testd \/testc|'
+        r'\/testc \/testb \/testd|'
+        r'\/testc \/testd \/testb|'
+        r'\/testd \/testb \/testc|'
+        r'\/testd \/testc \/testb'
+        r')$'
+    )
+    r.match(pattern)
+
+@test(8, "Reverse readlink: public testcase 3 (8 points)", parent=test_revreadlink)
+def test_revreadlink_public3():
+    pattern = (
+        r'^('
+        r'\/testdir1\/testx \/testdir1\/testy \/testdir1\/testz|'
+        r'\/testdir1\/testx \/testdir1\/testz \/testdir1\/testy|'
+        r'\/testdir1\/testy \/testdir1\/testx \/testdir1\/testz|'
+        r'\/testdir1\/testy \/testdir1\/testz \/testdir1\/testx|'
+        r'\/testdir1\/testz \/testdir1\/testx \/testdir1\/testy|'
+        r'\/testdir1\/testz \/testdir1\/testy \/testdir1\/testx'
+        r')$'
+    ) 
+    r.match(pattern)
+
+run_tests()
