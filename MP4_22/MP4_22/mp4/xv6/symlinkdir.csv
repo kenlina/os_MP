@@ -1,0 +1,5 @@
+make: 'kernel/kernel' is up to date.
+Testing symbolic links to directories (public): (1.3s) 
+  Symbolic links to directories: public testcase 1 (6 points): OK 
+  Symbolic links to directories: public testcase 2 (6 points): OK 
+Score: 12/12

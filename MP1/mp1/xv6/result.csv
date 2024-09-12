@@ -1,0 +1,29 @@
+== Test thread package with public testcase part1-0 (10%) ==
+thread package with public testcase part1-0: OK (2.3s)
+== Test thread package with public testcase part1-1 (10%) ==
+thread package with public testcase part1-1: OK (0.9s)
+== Test thread package with private testcase part1-2 (10%) ==
+thread package with private testcase part1-2: OK (1.1s)
+== Test thread package with private testcase part1-3 (10%) ==
+thread package with private testcase part1-3: OK (0.9s)
+== Test thread package with private testcase part1-4 (10%) ==
+thread package with private testcase part1-4: OK (1.0s)
+== Test thread package with private testcase part1-5 (10%) ==
+thread package with private testcase part1-5: OK (1.0s)
+== Test thread package with public testcase part2-0 (5%) ==
+thread package with public testcase part2-0: OK (1.1s)
+== Test thread package with public testcase part2-1 (5%) ==
+thread package with public testcase part2-1: OK (1.0s)
+== Test thread package with public testcase part2-2 (5%) ==
+thread package with public testcase part2-2: OK (1.0s)
+== Test thread package with private testcase part2-3 (5%) ==
+thread package with private testcase part2-3: OK (1.1s)
+== Test thread package with private testcase part2-4 (5%) ==
+thread package with private testcase part2-4: FAIL (0.9s)
+    [Error] Output on line 92: 'usertrap(): unexpected scause 0x000000000000000f pid=3', should be ''
+== Test thread package with private testcase part2-5 (7.5%) ==
+thread package with private testcase part2-5: OK (1.0s)
+== Test thread package with private testcase part2-6 (7.5%) ==
+thread package with private testcase part2-6: FAIL (1.0s)
+    [Error] Output on line 3: 'usertrap(): unexpected scause 0x000000000000000f pid=3', should be 'task2: 1'
+Score: 87/100

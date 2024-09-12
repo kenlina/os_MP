@@ -1,0 +1,24 @@
+riscv64-linux-gnu-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/sysfile.o kernel/sysfile.c
+riscv64-linux-gnu-ld -z max-page-size=4096 -T kernel/kernel.ld -o kernel/kernel kernel/entry.o kernel/start.o kernel/console.o kernel/printf.o kernel/uart.o kernel/kalloc.o kernel/spinlock.o kernel/string.o kernel/main.o kernel/vm.o kernel/proc.o kernel/swtch.o kernel/trampoline.o kernel/trap.o kernel/syscall.o kernel/sysproc.o kernel/bio.o kernel/fs.o kernel/log.o kernel/sleeplock.o kernel/file.o kernel/pipe.o kernel/exec.o kernel/sysfile.o kernel/kernelvec.o kernel/plic.o kernel/virtio_disk.o 
+riscv64-linux-gnu-ld: warning: cannot find entry symbol _entry; defaulting to 0000000080000000
+riscv64-linux-gnu-objdump -S kernel/kernel > kernel/kernel.asm
+riscv64-linux-gnu-objdump -t kernel/kernel | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > kernel/kernel.sym
+Testing symbolic links to directories (private): Timeout! (20.4s) 
+  Symbolic links to directories: private testcase 1 (6 points): OK 
+  Symbolic links to directories: private testcase 2 (6 points): FAIL 
+    ...
+         Start: test symlinks to directory
+         FAILURE: symlink q -> p failed
+         Start: test symlinks to directory
+         panic: dirlookup not DIR
+         qemu-system-riscv64: terminating on signal 15 from pid 13028 (make)
+    MISSING '^private testcase 2: ok$'
+  Symbolic links to directories: private testcase 3 (6 points): FAIL 
+    ...
+         Start: test symlinks to directory
+         FAILURE: symlink q -> p failed
+         Start: test symlinks to directory
+         panic: dirlookup not DIR
+         qemu-system-riscv64: terminating on signal 15 from pid 13028 (make)
+    MISSING '^private testcase 3: ok$'
+Score: 6/18
