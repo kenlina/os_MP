@@ -1,0 +1,12 @@
+
+xv6 kernel is booting
+
+init: starting sh
+$ task3
+thrd4 exec 5 ticks
+thrd2 exec 20 ticks
+thrd3 exec 35 ticks
+thrd1 exec 55 ticks
+
+exited
+$ qemu-system-riscv64: terminating on signal 15 from pid 16198 (make)
